@@ -1,0 +1,109 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:skyguard:schema:sos-request:1.0.0",
+  "title": "SOSRequest",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1.0.0",
+      "description": "Версія контракту пакета."
+    },
+    "requestId": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Ключ повторного надсилання; не є ID особи й не надає прав."
+    },
+    "user_latitude": {
+      "type": "number",
+      "minimum": -90,
+      "maximum": 90,
+      "description": "Широта пристрою репортера."
+    },
+    "user_longitude": {
+      "type": "number",
+      "minimum": -180,
+      "maximum": 180,
+      "description": "Довгота пристрою репортера."
+    },
+    "location_accuracy_m": {
+      "type": "number",
+      "minimum": 0,
+      "description": "Заявлена пристроєм точність координат; не є відстанню до укриття."
+    },
+    "observed_at": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}(\\.[0-9]{1,6})?Z$",
+      "description": "Час отримання координат або спостереження; актуальність перевіряє сервер."
+    },
+    "consent_id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Посилання на згоду. Наявність ID у пакеті не доводить чинність згоди."
+    },
+    "shelter_id": {
+      "type": "string",
+      "pattern": "^SH-[A-Z0-9]{2,16}-[0-9]{3,8}$",
+      "maxLength": 28,
+      "description": "Посилання на укриття, якщо воно відоме. Не є умовою надсилання SOS."
+    },
+    "incident_type": {
+      "type": "string",
+      "enum": [
+        "FIRE",
+        "COLLAPSE",
+        "MEDICAL",
+        "OTHER"
+      ],
+      "description": "Тип події, запропонований для контракту SOS."
+    },
+    "message": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 2000,
+      "pattern": "\\S",
+      "description": "Опис події. Для FIRE, COLLAPSE, MEDICAL можна не передавати."
+    },
+    "people_affected": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Оціночна кількість людей, яким потрібна допомога."
+    },
+    "contact_phone": {
+      "type": "string",
+      "pattern": "^\\+[1-9][0-9]{7,14}$",
+      "description": "Необов’язковий контакт. Формат не доводить, що номер існує."
+    }
+  },
+  "required": [
+    "schema_version",
+    "requestId",
+    "user_latitude",
+    "user_longitude",
+    "location_accuracy_m",
+    "observed_at",
+    "consent_id",
+    "incident_type"
+  ],
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "incident_type": {
+            "const": "OTHER"
+          }
+        },
+        "required": [
+          "incident_type"
+        ]
+      },
+      "then": {
+        "required": [
+          "message"
+        ]
+      }
+    }
+  ]
+}

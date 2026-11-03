@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0.0",
+  "event_id": "00000000-0000-4000-8000-000000000301",
+  "sequence": 0,
+  "timestamp": "2026-11-03T20:00:01Z",
+  "actor_id": "00000000-0000-4000-8000-000000000401",
+  "role": "Citizen",
+  "action": "UPDATE_SHELTER_STATUS_VERIFIED",
+  "resource": "shelter:SH-LVIV-001",
+  "status_code": 200,
+  "requestId": "00000000-0000-4000-8000-000000000101",
+  "previous_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+  "sha256_hash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+}

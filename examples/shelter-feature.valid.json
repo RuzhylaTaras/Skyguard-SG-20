@@ -1,0 +1,24 @@
+{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      24.03,
+      49.84
+    ]
+  },
+  "properties": {
+    "shelter_id": "SH-LVIV-001",
+    "name": "Навчальне укриття",
+    "address": "Умовна адреса, 1",
+    "capacity": 100,
+    "current_occupancy": 35,
+    "status": "OPEN",
+    "wheelchair_accessible": true,
+    "has_starlink": false,
+    "has_power_generator": true,
+    "potable_water": true,
+    "last_confirmed_at": "2026-11-03T20:00:00Z",
+    "source_id": "registry-demo"
+  }
+}

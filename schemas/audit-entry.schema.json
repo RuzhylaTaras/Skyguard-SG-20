@@ -1,0 +1,131 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:skyguard:schema:audit-entry:1.0.0",
+  "title": "AuditEntry",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1.0.0",
+      "description": "Версія формату запису."
+    },
+    "event_id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "ID події аудиту."
+    },
+    "sequence": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Позиція в ланцюгу; послідовність перевіряється сервером."
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}(\\.[0-9]{1,6})?Z$",
+      "description": "Серверний час події."
+    },
+    "actor_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "uuid",
+      "description": "Псевдонім облікового запису; походить з автентифікації."
+    },
+    "role": {
+      "type": "string",
+      "enum": [
+        "Anonymous",
+        "Citizen",
+        "Verified Volunteer",
+        "Shelter Manager",
+        "DSNS Operator",
+        "Security Auditor"
+      ],
+      "description": "Роль, визначена сервером."
+    },
+    "action": {
+      "type": "string",
+      "pattern": "^[A-Z][A-Z0-9_]{2,63}$",
+      "description": "Код виконаної дії або відмови."
+    },
+    "resource": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 256,
+      "pattern": "\\S",
+      "description": "Посилання на ресурс без точних GPS чи тексту SOS."
+    },
+    "status_code": {
+      "type": "integer",
+      "minimum": 100,
+      "maximum": 599,
+      "description": "Результат обробки операції."
+    },
+    "requestId": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Кореляція серверної події із запитом."
+    },
+    "distance_m": {
+      "type": "number",
+      "minimum": 0,
+      "description": "Виміряна сервером дистанція для подій DQ-1 без точних GPS."
+    },
+    "previous_hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$",
+      "description": "Хеш попереднього запису; для початку ланцюга – 64 нулі."
+    },
+    "sha256_hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$",
+      "description": "Хеш поточного запису; математична правильність поза JSON Schema."
+    }
+  },
+  "required": [
+    "schema_version",
+    "event_id",
+    "sequence",
+    "timestamp",
+    "actor_id",
+    "role",
+    "action",
+    "resource",
+    "status_code",
+    "requestId",
+    "previous_hash",
+    "sha256_hash"
+  ],
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "role": {
+            "const": "Anonymous"
+          }
+        },
+        "required": [
+          "role"
+        ]
+      },
+      "then": {
+        "properties": {
+          "actor_id": {
+            "type": "null"
+          }
+        }
+      },
+      "else": {
+        "properties": {
+          "actor_id": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      }
+    }
+  ]
+}

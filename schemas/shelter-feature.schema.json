@@ -1,0 +1,146 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:skyguard:schema:shelter-feature:1.0.0",
+  "title": "ShelterFeature",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "type": {
+      "type": "string",
+      "const": "Feature",
+      "description": "Тип об’єкта GeoJSON."
+    },
+    "geometry": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "type": "string",
+          "const": "Point",
+          "description": "Геометрія точки входу."
+        },
+        "coordinates": {
+          "type": "array",
+          "prefixItems": [
+            {
+              "type": "number",
+              "minimum": -180,
+              "maximum": 180
+            },
+            {
+              "type": "number",
+              "minimum": -90,
+              "maximum": 90
+            }
+          ],
+          "items": false,
+          "minItems": 2,
+          "maxItems": 2,
+          "description": "Рівно дві координати у визначеному порядку."
+        }
+      },
+      "required": [
+        "type",
+        "coordinates"
+      ],
+      "description": "Координати входу."
+    },
+    "properties": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "shelter_id": {
+          "type": "string",
+          "pattern": "^SH-[A-Z0-9]{2,16}-[0-9]{3,8}$",
+          "maxLength": 28,
+          "description": "Ідентифікатор укриття у профілі SkyGuard."
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 255,
+          "pattern": "\\S",
+          "description": "Офіційна назва."
+        },
+        "address": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 500,
+          "pattern": "\\S",
+          "description": "Поштова адреса входу."
+        },
+        "capacity": {
+          "type": "integer",
+          "minimum": 10,
+          "description": "Паспортна місткість."
+        },
+        "current_occupancy": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Остання підтверджена кількість людей; не обмежується capacity."
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "OPEN",
+            "CLOSED",
+            "OVERCROWDED",
+            "MAINTENANCE"
+          ],
+          "description": "Поточний підтверджений статус."
+        },
+        "wheelchair_accessible": {
+          "type": "boolean",
+          "description": "Наявність безбар’єрного входу."
+        },
+        "has_starlink": {
+          "type": "boolean",
+          "description": "Наявність діючого Starlink."
+        },
+        "has_power_generator": {
+          "type": "boolean",
+          "description": "Наявність генератора."
+        },
+        "potable_water": {
+          "type": "boolean",
+          "description": "Наявність питної води."
+        },
+        "last_confirmed_at": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time",
+          "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}(\\.[0-9]{1,6})?Z$",
+          "description": "Час останнього підтвердження; null означає відсутність підтвердження."
+        },
+        "source_id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]*$",
+          "description": "Знеособлений ID джерела; не ідентифікатор громадянина."
+        }
+      },
+      "required": [
+        "shelter_id",
+        "name",
+        "address",
+        "capacity",
+        "status",
+        "wheelchair_accessible",
+        "has_starlink",
+        "has_power_generator",
+        "potable_water",
+        "last_confirmed_at",
+        "source_id"
+      ],
+      "description": "Публічна проєкція; службові та персональні поля заборонені."
+    }
+  },
+  "required": [
+    "type",
+    "geometry",
+    "properties"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "schema_version": "1.0.0",
+  "requestId": "00000000-0000-4000-8000-000000000101",
+  "shelter_id": "SH-LVIV-001",
+  "status": "OPEN",
+  "user_latitude": 49.84,
+  "user_longitude": 24.03,
+  "location_accuracy_m": 8.5,
+  "observed_at": "2026-11-03T20:00:00Z",
+  "consent_id": "00000000-0000-4000-8000-000000000201",
+  "current_occupancy": 35,
+  "comment": "Вхід відчинений; навчальний приклад."
+}

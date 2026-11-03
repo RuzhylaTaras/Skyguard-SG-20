@@ -1,0 +1,12 @@
+{
+  "schema_version": "1.0.0",
+  "requestId": "00000000-0000-4000-8000-000000000102",
+  "user_latitude": 49.84,
+  "user_longitude": 24.03,
+  "location_accuracy_m": 12,
+  "observed_at": "2026-11-03T20:01:00Z",
+  "consent_id": "00000000-0000-4000-8000-000000000202",
+  "incident_type": "MEDICAL",
+  "people_affected": 1,
+  "message": "Навчальний приклад звернення; реальної події немає."
+}

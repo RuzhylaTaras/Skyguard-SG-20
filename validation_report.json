@@ -1,0 +1,931 @@
+{
+  "validator": "jsonschema",
+  "validator_version": "4.26.0",
+  "draft": "2020-12",
+  "format_checker_enabled": true,
+  "schemas_meta_validated": 4,
+  "total_cases": 95,
+  "passed": 95,
+  "failed": 0,
+  "scope": "JSON parsing and schema validation only; no live backend, RBAC, consent registry, geofence, quorum or cryptographic integrity test.",
+  "results": [
+    {
+      "name": "Valid example: status",
+      "schema": "status",
+      "expected_valid": true,
+      "actual_valid": true,
+      "passed": true,
+      "error_keywords": []
+    },
+    {
+      "name": "Valid example: sos",
+      "schema": "sos",
+      "expected_valid": true,
+      "actual_valid": true,
+      "passed": true,
+      "error_keywords": []
+    },
+    {
+      "name": "Valid example: shelter",
+      "schema": "shelter",
+      "expected_valid": true,
+      "actual_valid": true,
+      "passed": true,
+      "error_keywords": []
+    },
+    {
+      "name": "Valid example: audit",
+      "schema": "audit",
+      "expected_valid": true,
+      "actual_valid": true,
+      "passed": true,
+      "error_keywords": []
+    },
+    {
+      "name": "Status minimal optional fields omitted",
+      "schema": "status",
+      "expected_valid": true,
+      "actual_valid": true,
+      "passed": true,
+      "error_keywords": []
+    },
+    {
+      "name": "Status inclusive coordinate boundaries",
+      "schema": "status",
+      "expected_valid": true,
+      "actual_valid": true,
+      "passed": true,
+      "error_keywords": []
+    },
+    {
+      "name": "Status actual occupancy can exceed nominal capacity",
+      "schema": "status",
+      "expected_valid": true,
+      "actual_valid": true,
+      "passed": true,
+      "error_keywords": []
+    },
+    {
+      "name": "Status coordinate distance is a backend check",
+      "schema": "status",
+      "expected_valid": true,
+      "actual_valid": true,
+      "passed": true,
+      "error_keywords": []
+    },
+    {
+      "name": "Status fractional UTC timestamp",
+      "schema": "status",
+      "expected_valid": true,
+      "actual_valid": true,
+      "passed": true,
+      "error_keywords": []
+    },
+    {
+      "name": "Reject status latitude outside range",
+      "schema": "status",
+      "expected_valid": false,
+      "actual_valid": false,
+      "passed": true,
+      "error_keywords": [
+        "maximum"
+      ]
+    },
+    {
+      "name": "Reject status longitude outside range",
+      "schema": "status",
+      "expected_valid": false,
+      "actual_valid": false,
+      "passed": true,
+      "error_keywords": [
+        "minimum"
+      ]
+    },
+    {
+      "name": "Reject status string coordinate",
+      "schema": "status",
+      "expected_valid": false,
+      "actual_valid": false,
+      "passed": true,
+      "error_keywords": [
+        "type"
+      ]
+    },
+    {
+      "name": "Reject status negative accuracy",
+      "schema": "status",
+      "expected_valid": false,
+      "actual_valid": false,
+      "passed": true,
+      "error_keywords": [
+        "minimum"
+      ]
+    },
+    {
+      "name": "Reject status boolean occupancy",
+      "schema": "status",
+      "expected_valid": false,
+      "actual_valid": false,
+      "passed": true,
+      "error_keywords": [
+        "type"
+      ]
+    },
+    {
+      "name": "Reject status negative occupancy",
+      "schema": "status",
+      "expected_valid": false,
+      "actual_valid": false,
+      "passed": true,
+      "error_keywords": [
+        "minimum"
+      ]
+    },
+    {
+      "name": "Reject status null optional occupancy",
+      "schema": "status",
+      "expected_valid": false,
+      "actual_valid": false,
+      "passed": true,
+      "error_keywords": [
+        "type"
+      ]
+    },
+    {
+      "name": "Reject status unknown status",
+      "schema": "status",
+      "expected_valid": false,
+      "actual_valid": false,
+      "passed": true,
+      "error_keywords": [
+        "enum"
+      ]
+    },
+    {
+      "name": "Reject status blank comment",
+      "schema": "status",
+      "expected_valid": false,
+      "actual_valid": false,
+      "passed": true,
+      "error_keywords": [
+        "pattern"
+      ]
+    },
+    {
+      "name": "Reject status invalid calendar date",
+      "schema": "status",
+      "expected_valid": false,
+      "actual_valid": false,
+      "passed": true,
+      "error_keywords": [
+        "format"
+      ]
+    },
+    {
+      "name": "Reject status missing timezone",
+      "schema": "status",
+      "expected_valid": false,
+      "actual_valid": false,
+      "passed": true,
+      "error_keywords": [
+        "format",
+        "pattern"
+      ]
+    },
+    {
+      "name": "Reject status non-UTC timestamp profile",
+      "schema": "status",
+      "expected_valid": false,
+      "actual_valid": false,
+      "passed": true,
+      "error_keywords": [
+        "pattern"
+      ]
+    },
+    {
+      "name": "Reject status invalid UUID",
+      "schema": "status",
+      "expected_valid": false,
+      "actual_valid": false,
+      "passed": true,
+      "error_keywords": [
+        "format"
+      ]
+    },
+    {
+      "name": "Reject status incorrect version",
+      "schema": "status",
+      "expected_valid": false,
+      "actual_valid": false,
+      "passed": true,
+      "error_keywords": [
+        "const"
+      ]
+    },
+    {
+      "name": "Reject status project shelter ID pattern",
+      "schema": "status",
+      "expected_valid": false,
+      "actual_valid": false,
+      "passed": true,
+      "error_keywords": [
+        "pattern"
+      ]
+    },
+    {
+      "name": "Reject status spoofed role",
+      "schema": "status",
+      "expected_valid": false,
+      "actual_valid": false,
+      "passed": true,
+      "error_keywords": [
+        "additionalProperties"
+      ]
+    },
+    {
+      "name": "Reject status spoofed author",
+      "schema": "status",
+      "expected_valid": false,
+      "actual_valid": false,
+      "passed": true,
+      "error_keywords": [
+        "additionalProperties"
+      ]
+    },
+    {
+      "name": "Reject status client-computed distance",
+      "schema": "status",
+      "expected_valid": false,
+      "actual_valid": false,
+      "passed": true,
+      "error_keywords": [
+        "additionalProperties"
+      ]
+    },
+    {
+      "name": "Reject status unknown extra field",
+      "schema": "status",
+      "expected_valid": false,
+      "actual_valid": false,
+      "passed": true,
+      "error_keywords": [
+        "additionalProperties"
+      ]
+    },
+    {
+      "name": "SOS minimal MEDICAL without shelter/contact/message",
+      "schema": "sos",
+      "expected_valid": true,
+      "actual_valid": true,
+      "passed": true,
+      "error_keywords": []
+    },
+    {
+      "name": "SOS OTHER with description",
+      "schema": "sos",
+      "expected_valid": true,
+      "actual_valid": true,
+      "passed": true,
+      "error_keywords": []
+    },
+    {
+      "name": "SOS no 100 m shelter restriction",
+      "schema": "sos",
+      "expected_valid": true,
+      "actual_valid": true,
+      "passed": true,
+      "error_keywords": []
+    },
+    {
+      "name": "SOS optional contact and known shelter",
+      "schema": "sos",
+      "expected_valid": true,
+      "actual_valid": true,
+      "passed": true,
+      "error_keywords": []
+    },
+    {
+      "name": "Reject SOS OTHER without description",
+      "schema": "sos",
+      "expected_valid": false,
+      "actual_valid": false,
+      "passed": true,
+      "error_keywords": [
+        "required"
+      ]
+    },
+    {
+      "name": "Reject SOS blank OTHER description",
+      "schema": "sos",
+      "expected_valid": false,
+      "actual_valid": false,
+      "passed": true,
+      "error_keywords": [
+        "pattern"
+      ]
+    },
+    {
+      "name": "Reject SOS unknown incident type",
+      "schema": "sos",
+      "expected_valid": false,
+      "actual_valid": false,
+      "passed": true,
+      "error_keywords": [
+        "enum"
+      ]
+    },
+    {
+      "name": "Reject SOS zero affected people",
+      "schema": "sos",
+      "expected_valid": false,
+      "actual_valid": false,
+      "passed": true,
+      "error_keywords": [
+        "minimum"
+      ]
+    },
+    {
+      "name": "Reject SOS boolean affected people",
+      "schema": "sos",
+      "expected_valid": false,
+      "actual_valid": false,
+      "passed": true,
+      "error_keywords": [
+        "type"
+      ]
+    },
+    {
+      "name": "Reject SOS invalid phone",
+      "schema": "sos",
+      "expected_valid": false,
+      "actual_valid": false,
+      "passed": true,
+      "error_keywords": [
+        "pattern"
+      ]
+    },
+    {
+      "name": "Reject SOS out-of-range SOS coordinate",
+      "schema": "sos",
+      "expected_valid": false,
+      "actual_valid": false,
+      "passed": true,
+      "error_keywords": [
+        "maximum"
+      ]
+    },
+    {
+      "name": "Reject SOS fake server processing status",
+      "schema": "sos",
+      "expected_valid": false,
+      "actual_valid": false,
+      "passed": true,
+      "error_keywords": [
+        "additionalProperties"
+      ]
+    },
+    {
+      "name": "Reject SOS fake assigned operator",
+      "schema": "sos",
+      "expected_valid": false,
+      "actual_valid": false,
+      "passed": true,
+      "error_keywords": [
+        "additionalProperties"
+      ]
+    },
+    {
+      "name": "Reject SOS empty supplied shelter ID",
+      "schema": "sos",
+      "expected_valid": false,
+      "actual_valid": false,
+      "passed": true,
+      "error_keywords": [
+        "pattern"
+      ]
+    },
+    {
+      "name": "Shelter can be unconfirmed",
+      "schema": "shelter",
+      "expected_valid": true,
+      "actual_valid": true,
+      "passed": true,
+      "error_keywords": []
+    },
+    {
+      "name": "Shelter optional occupancy omitted",
+      "schema": "shelter",
+      "expected_valid": true,
+      "actual_valid": true,
+      "passed": true,
+      "error_keywords": []
+    },
+    {
+      "name": "Reject confidential field in public Shelter",
+      "schema": "shelter",
+      "expected_valid": false,
+      "actual_valid": false,
+      "passed": true,
+      "error_keywords": [
+        "additionalProperties"
+      ]
+    },
+    {
+      "name": "Reject reporter GPS in public Shelter",
+      "schema": "shelter",
+      "expected_valid": false,
+      "actual_valid": false,
+      "passed": true,
+      "error_keywords": [
+        "additionalProperties"
+      ]
+    },
+    {
+      "name": "Reject non-point geometry",
+      "schema": "shelter",
+      "expected_valid": false,
+      "actual_valid": false,
+      "passed": true,
+      "error_keywords": [
+        "const"
+      ]
+    },
+    {
+      "name": "Reject third coordinate in this 2D profile",
+      "schema": "shelter",
+      "expected_valid": false,
+      "actual_valid": false,
+      "passed": true,
+      "error_keywords": [
+        "items",
+        "maxItems"
+      ]
+    },
+    {
+      "name": "Reject latitude 91 in GeoJSON tuple",
+      "schema": "shelter",
+      "expected_valid": false,
+      "actual_valid": false,
+      "passed": true,
+      "error_keywords": [
+        "maximum"
+      ]
+    },
+    {
+      "name": "Reject capacity below project minimum",
+      "schema": "shelter",
+      "expected_valid": false,
+      "actual_valid": false,
+      "passed": true,
+      "error_keywords": [
+        "minimum"
+      ]
+    },
+    {
+      "name": "Reject string resource flag",
+      "schema": "shelter",
+      "expected_valid": false,
+      "actual_valid": false,
+      "passed": true,
+      "error_keywords": [
+        "type"
+      ]
+    },
+    {
+      "name": "Audit anonymous event with null identity",
+      "schema": "audit",
+      "expected_valid": true,
+      "actual_valid": true,
+      "passed": true,
+      "error_keywords": []
+    },
+    {
+      "name": "Audit optional measured distance",
+      "schema": "audit",
+      "expected_valid": true,
+      "actual_valid": true,
+      "passed": true,
+      "error_keywords": []
+    },
+    {
+      "name": "Reject audit unknown role alias",
+      "schema": "audit",
+      "expected_valid": false,
+      "actual_valid": false,
+      "passed": true,
+      "error_keywords": [
+        "enum"
+      ]
+    },
+    {
+      "name": "Reject audit Anonymous with identity",
+      "schema": "audit",
+      "expected_valid": false,
+      "actual_valid": false,
+      "passed": true,
+      "error_keywords": [
+        "type"
+      ]
+    },
+    {
+      "name": "Reject audit Citizen without identity",
+      "schema": "audit",
+      "expected_valid": false,
+      "actual_valid": false,
+      "passed": true,
+      "error_keywords": [
+        "type"
+      ]
+    },
+    {
+      "name": "Reject audit short hash",
+      "schema": "audit",
+      "expected_valid": false,
+      "actual_valid": false,
+      "passed": true,
+      "error_keywords": [
+        "pattern"
+      ]
+    },
+    {
+      "name": "Reject audit invalid hexadecimal hash",
+      "schema": "audit",
+      "expected_valid": false,
+      "actual_valid": false,
+      "passed": true,
+      "error_keywords": [
+        "pattern"
+      ]
+    },
+    {
+      "name": "Reject audit negative sequence",
+      "schema": "audit",
+      "expected_valid": false,
+      "actual_valid": false,
+      "passed": true,
+      "error_keywords": [
+        "minimum"
+      ]
+    },
+    {
+      "name": "Reject audit non-HTTP status",
+      "schema": "audit",
+      "expected_valid": false,
+      "actual_valid": false,
+      "passed": true,
+      "error_keywords": [
+        "maximum"
+      ]
+    },
+    {
+      "name": "Reject audit exact GPS data forbidden",
+      "schema": "audit",
+      "expected_valid": false,
+      "actual_valid": false,
+      "passed": true,
+      "error_keywords": [
+        "additionalProperties"
+      ]
+    },
+    {
+      "name": "Reject missing required status.schema_version",
+      "schema": "status",
+      "expected_valid": false,
+      "actual_valid": false,
+      "passed": true,
+      "error_keywords": [
+        "required"
+      ]
+    },
+    {
+      "name": "Reject missing required status.requestId",
+      "schema": "status",
+      "expected_valid": false,
+      "actual_valid": false,
+      "passed": true,
+      "error_keywords": [
+        "required"
+      ]
+    },
+    {
+      "name": "Reject missing required status.shelter_id",
+      "schema": "status",
+      "expected_valid": false,
+      "actual_valid": false,
+      "passed": true,
+      "error_keywords": [
+        "required"
+      ]
+    },
+    {
+      "name": "Reject missing required status.status",
+      "schema": "status",
+      "expected_valid": false,
+      "actual_valid": false,
+      "passed": true,
+      "error_keywords": [
+        "required"
+      ]
+    },
+    {
+      "name": "Reject missing required status.user_latitude",
+      "schema": "status",
+      "expected_valid": false,
+      "actual_valid": false,
+      "passed": true,
+      "error_keywords": [
+        "required"
+      ]
+    },
+    {
+      "name": "Reject missing required status.user_longitude",
+      "schema": "status",
+      "expected_valid": false,
+      "actual_valid": false,
+      "passed": true,
+      "error_keywords": [
+        "required"
+      ]
+    },
+    {
+      "name": "Reject missing required status.location_accuracy_m",
+      "schema": "status",
+      "expected_valid": false,
+      "actual_valid": false,
+      "passed": true,
+      "error_keywords": [
+        "required"
+      ]
+    },
+    {
+      "name": "Reject missing required status.observed_at",
+      "schema": "status",
+      "expected_valid": false,
+      "actual_valid": false,
+      "passed": true,
+      "error_keywords": [
+        "required"
+      ]
+    },
+    {
+      "name": "Reject missing required status.consent_id",
+      "schema": "status",
+      "expected_valid": false,
+      "actual_valid": false,
+      "passed": true,
+      "error_keywords": [
+        "required"
+      ]
+    },
+    {
+      "name": "Reject missing required sos.schema_version",
+      "schema": "sos",
+      "expected_valid": false,
+      "actual_valid": false,
+      "passed": true,
+      "error_keywords": [
+        "required"
+      ]
+    },
+    {
+      "name": "Reject missing required sos.requestId",
+      "schema": "sos",
+      "expected_valid": false,
+      "actual_valid": false,
+      "passed": true,
+      "error_keywords": [
+        "required"
+      ]
+    },
+    {
+      "name": "Reject missing required sos.user_latitude",
+      "schema": "sos",
+      "expected_valid": false,
+      "actual_valid": false,
+      "passed": true,
+      "error_keywords": [
+        "required"
+      ]
+    },
+    {
+      "name": "Reject missing required sos.user_longitude",
+      "schema": "sos",
+      "expected_valid": false,
+      "actual_valid": false,
+      "passed": true,
+      "error_keywords": [
+        "required"
+      ]
+    },
+    {
+      "name": "Reject missing required sos.location_accuracy_m",
+      "schema": "sos",
+      "expected_valid": false,
+      "actual_valid": false,
+      "passed": true,
+      "error_keywords": [
+        "required"
+      ]
+    },
+    {
+      "name": "Reject missing required sos.observed_at",
+      "schema": "sos",
+      "expected_valid": false,
+      "actual_valid": false,
+      "passed": true,
+      "error_keywords": [
+        "required"
+      ]
+    },
+    {
+      "name": "Reject missing required sos.consent_id",
+      "schema": "sos",
+      "expected_valid": false,
+      "actual_valid": false,
+      "passed": true,
+      "error_keywords": [
+        "required"
+      ]
+    },
+    {
+      "name": "Reject missing required sos.incident_type",
+      "schema": "sos",
+      "expected_valid": false,
+      "actual_valid": false,
+      "passed": true,
+      "error_keywords": [
+        "required"
+      ]
+    },
+    {
+      "name": "Reject missing required shelter.type",
+      "schema": "shelter",
+      "expected_valid": false,
+      "actual_valid": false,
+      "passed": true,
+      "error_keywords": [
+        "required"
+      ]
+    },
+    {
+      "name": "Reject missing required shelter.geometry",
+      "schema": "shelter",
+      "expected_valid": false,
+      "actual_valid": false,
+      "passed": true,
+      "error_keywords": [
+        "required"
+      ]
+    },
+    {
+      "name": "Reject missing required shelter.properties",
+      "schema": "shelter",
+      "expected_valid": false,
+      "actual_valid": false,
+      "passed": true,
+      "error_keywords": [
+        "required"
+      ]
+    },
+    {
+      "name": "Reject missing required audit.schema_version",
+      "schema": "audit",
+      "expected_valid": false,
+      "actual_valid": false,
+      "passed": true,
+      "error_keywords": [
+        "required"
+      ]
+    },
+    {
+      "name": "Reject missing required audit.event_id",
+      "schema": "audit",
+      "expected_valid": false,
+      "actual_valid": false,
+      "passed": true,
+      "error_keywords": [
+        "required"
+      ]
+    },
+    {
+      "name": "Reject missing required audit.sequence",
+      "schema": "audit",
+      "expected_valid": false,
+      "actual_valid": false,
+      "passed": true,
+      "error_keywords": [
+        "required"
+      ]
+    },
+    {
+      "name": "Reject missing required audit.timestamp",
+      "schema": "audit",
+      "expected_valid": false,
+      "actual_valid": false,
+      "passed": true,
+      "error_keywords": [
+        "required"
+      ]
+    },
+    {
+      "name": "Reject missing required audit.actor_id",
+      "schema": "audit",
+      "expected_valid": false,
+      "actual_valid": false,
+      "passed": true,
+      "error_keywords": [
+        "required"
+      ]
+    },
+    {
+      "name": "Reject missing required audit.role",
+      "schema": "audit",
+      "expected_valid": false,
+      "actual_valid": false,
+      "passed": true,
+      "error_keywords": [
+        "required"
+      ]
+    },
+    {
+      "name": "Reject missing required audit.action",
+      "schema": "audit",
+      "expected_valid": false,
+      "actual_valid": false,
+      "passed": true,
+      "error_keywords": [
+        "required"
+      ]
+    },
+    {
+      "name": "Reject missing required audit.resource",
+      "schema": "audit",
+      "expected_valid": false,
+      "actual_valid": false,
+      "passed": true,
+      "error_keywords": [
+        "required"
+      ]
+    },
+    {
+      "name": "Reject missing required audit.status_code",
+      "schema": "audit",
+      "expected_valid": false,
+      "actual_valid": false,
+      "passed": true,
+      "error_keywords": [
+        "required"
+      ]
+    },
+    {
+      "name": "Reject missing required audit.requestId",
+      "schema": "audit",
+      "expected_valid": false,
+      "actual_valid": false,
+      "passed": true,
+      "error_keywords": [
+        "required"
+      ]
+    },
+    {
+      "name": "Reject missing required audit.previous_hash",
+      "schema": "audit",
+      "expected_valid": false,
+      "actual_valid": false,
+      "passed": true,
+      "error_keywords": [
+        "required"
+      ]
+    },
+    {
+      "name": "Reject missing required audit.sha256_hash",
+      "schema": "audit",
+      "expected_valid": false,
+      "actual_valid": false,
+      "passed": true,
+      "error_keywords": [
+        "required"
+      ]
+    },
+    {
+      "name": "Strict parser rejects NaN token",
+      "schema": "parser",
+      "expected_valid": false,
+      "actual_valid": false,
+      "passed": true,
+      "error_keywords": [
+        "parse"
+      ]
+    },
+    {
+      "name": "Strict parser rejects duplicate JSON key",
+      "schema": "parser",
+      "expected_valid": false,
+      "actual_valid": false,
+      "passed": true,
+      "error_keywords": [
+        "parse"
+      ]
+    }
+  ]
+}
